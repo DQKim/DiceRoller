@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="DiceRoller.Controls.TemplateCall.DCCallLadder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:libs="clr-namespace:DiceRoller.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="ExtraBold" />
+            </Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="ExtraBold" />
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Content="길이" HorizontalContentAlignment="Center"></Label>
+        <TextBlock Grid.Column="1" x:Name="TextBlockLadderLength" Margin="15,0,15,0">
+            <TextBlock.Text>
+                <Binding Path="LadderLength" Mode="OneWay" /> 
+            </TextBlock.Text>
+        </TextBlock>
+        <libs:CustomButton Grid.Column="2" Margin="8,4,8,4" Value="편집" x:Name="ButtonLadderModify" Click="ButtonLadderModify_Click"></libs:CustomButton>
+    </Grid>
+</UserControl>

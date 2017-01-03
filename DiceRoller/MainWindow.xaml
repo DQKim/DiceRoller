@@ -1,0 +1,50 @@
+﻿<Window x:Class="DiceRoller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:libs="clr-namespace:DiceRoller.Controls"
+        Title="MainWindow" 
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        Background="Transparent"
+        Loaded="Window_Loaded"
+        MouseDown="Window_MouseDown"
+        SizeToContent="Height"
+        Height="Auto"
+        Width="525" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Border x:Name="OuterBackground" Margin="0" CornerRadius="15" Grid.RowSpan="4"></Border>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+            <libs:CustomButton x:Name="ButtonOpen" Grid.Column="1" Value="새창" Margin="4" VerticalContentAlignment="Center" Click="ButtonOpen_Click"></libs:CustomButton>
+            <libs:CustomButton x:Name="ButtonSave" Grid.Column="2" Value="저장" Margin="4" VerticalContentAlignment="Center" Click="ButtonSave_Click"></libs:CustomButton>
+            <libs:CustomButton x:Name="ButtonLoad" Grid.Column="3" Value="로드" Margin="4" VerticalContentAlignment="Center" Click="ButtonLoad_Click"></libs:CustomButton>
+            <libs:CustomButton x:Name="ButtonRoll" Grid.Column="4" Value="실행" Margin="4" VerticalContentAlignment="Center" Click="ButtonRoll_Click"></libs:CustomButton>
+            <!--여기에 종료버튼-->
+            <libs:CustomButton  x:Name="ButtonExit" Grid.Column="6" Value="X" Margin="4" VerticalAlignment="Center" Click="ButtonExit_Click" ></libs:CustomButton>
+        </Grid>
+        <Border x:Name="InnerBackground" BorderBrush="Black" BorderThickness="0" CornerRadius="15" Margin="5,0,5,5" Grid.Row="2">
+        </Border>
+        <libs:CustomButton Grid.Row="1" Value="-" BorderRadius="8,8,0,0" BorderBrush="Transparent" x:Name="ButtonRemoveTemplate" Click="ButtonRemoveTemplate_Click"></libs:CustomButton>
+        <libs:CustomButton Grid.Row="3" Value="+" BorderRadius="0,0,8,8"  BorderBrush="Transparent" x:Name="ButtonAddTemplate" Click="ButtonAddTemplate_Click"></libs:CustomButton>
+        <Grid Grid.Row="2"  x:Name="GridTemplates" Height="10">
+            <Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+        </Grid>
+    </Grid>
+</Window>

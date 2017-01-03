@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="DiceRoller.Controls.TemplatePick.DCPickCompare"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="425">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="BorderThickness" Value="5,0,0,0" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="CaretBrush" Value="White" />
+                <Setter Property="BorderBrush" Value="#373737" />
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="ExtraBold" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="{x:Type ComboBox}">
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="기능"></Label>
+            <ComboBox x:Name="ComboBoxType" Grid.Column="1" Margin="15,5,15,5" SelectionChanged="ComboBoxType_SelectionChanged">
+                <ComboBoxItem>GTE</ComboBoxItem>
+                <ComboBoxItem>GT</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">EQ</ComboBoxItem>
+                <ComboBoxItem>NE</ComboBoxItem>
+                <ComboBoxItem>LT</ComboBoxItem>
+                <ComboBoxItem>LTE</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="변수"></Label>
+            <TextBox x:Name="TextBoxArg" Margin="15,5,15,5" Grid.Column ="1" PreviewTextInput="TextBox_OnlyPositiveNumber">
+                <TextBox.Text>
+                    <Binding Path="TemplateArg" Mode="TwoWay" />
+                </TextBox.Text>
+            </TextBox>
+        </Grid>
+    </Grid>
+</UserControl>

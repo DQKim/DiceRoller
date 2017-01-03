@@ -1,0 +1,47 @@
+﻿<Window x:Class="DiceRoller.Controls.TemplateCall.Ladder.WindowLadder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:libs="clr-namespace:DiceRoller.Controls"
+        Title="WindowLadder" 
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="Height"
+        MouseDown="Window_MouseDown"
+        Height="Auto"
+        Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="GridValues">
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="BorderThickness" Value="5,0,0,0" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="CaretBrush" Value="White" />
+                    <Setter Property="BorderBrush" Value="#373737" />
+                    <Setter Property="Margin" Value="10,0,0,0" />
+                </Style>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontWeight" Value="ExtraBold" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </Grid.Resources>
+        </Grid>
+        <Grid Grid.Row="1">
+            <libs:CustomButton x:Name="ButtonAccept" Value="확인" Margin="5" Click="ButtonAccept_Click"></libs:CustomButton>
+        </Grid>
+    </Grid>
+</Window>
