@@ -119,6 +119,26 @@ namespace DRLib.Template
         /// </summary>
         public DiceCall Call { set; get; }
 
+        /// <summary>
+        /// 히스토리 최대 길이 (기본 1천, 1만 이상 설정 불가
+        /// </summary>
+        public ushort HistorySize
+        {
+            set
+            {
+                if (value > 10000)
+                {
+                    this.historySize = 10000;
+                }
+                else
+                {
+                    this.historySize = value;
+                }
+            }
+            get { return historySize; }
+        }
+        private ushort historySize = 1000;
+
         [JsonIgnore]
         public List<DiceHistory> History { set; get; }
         [JsonIgnore]
@@ -149,6 +169,10 @@ namespace DRLib.Template
 
             currentHistory.SetResult(string.Format(Text, valuesCalled));
 
+            if (this.History.Count >= this.HistorySize)
+            {
+                this.History = this.History.Skip(1).Take(this.HistorySize - 1).ToList();
+            }
             this.History.Add(currentHistory);
         }
 

@@ -64,6 +64,11 @@ namespace CRLibTestModule
             Console.WriteLine();
 
             Console.ReadLine();
+
+            while (true)
+            {
+                diceDecoded.Run();
+            }
         }
     }
 }
